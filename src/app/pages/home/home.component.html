@@ -1,0 +1,15 @@
+<div class="form-group">
+    <label for="csv">CSV</label>
+	<textarea id="csv" class="form-control" [(ngModel)]="csv"></textarea>
+</div>
+<div class="form-group">
+    <label for="time">time (minutes)</label>
+	<input type="number" id="time" class="form-control" [(ngModel)]="time" />
+</div>
+<div class="form-group text-left">
+    <label for="shuffle">shuffle</label>
+	<input type="checkbox" id="shuffle" class="form-control" [(ngModel)]="shuffle" style="width: auto;" />
+</div>
+<div class="form-group">
+	<button class="btn btn-success" (click)="processCSV()">START</button>
+</div>

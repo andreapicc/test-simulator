@@ -1,0 +1,34 @@
+<div class="row">
+	<div class="col-6">{{currentIndex+1}} of {{questions.length}}</div>
+	<div class="col-6 text-right">{{timeString}}</div>
+</div>
+<div class="card">
+	<div class="card-header" [innerHTML]="currentQuestion.q">
+	</div>
+	<div class="card-body">
+		<div *ngIf="currentQuestion.type === 'multi'">
+			<div *ngFor="let a of currentQuestion.a" class="row">
+				<div class="col-1">
+					<input type="checkbox" name="answer{{a.i}}" [(ngModel)]="answer[a.i]" (click)="setCheckbox(a)" />
+				</div>
+				<div class="col-11">
+					<span [innerHTML]="a.t"></span>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="currentQuestion.type === 'single'">
+			<div *ngFor="let a of currentQuestion.a" class="row">
+				<div class="col-1">
+					<input type="radio" name="answer" (click)="setRadio(a)" />
+				</div>
+				<div class="col-11">
+					<span [innerHTML]="a.t"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="card-footer text-muted">
+		<button class="btn btn-success" (click)="next()">next</button>
+	</div>
+</div>
+
