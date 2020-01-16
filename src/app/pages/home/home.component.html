@@ -1,3 +1,4 @@
+<h1 class="display-4">TEST SIMULATOR</h1>
 <div class="form-group">
     <label for="csv">CSV</label>
 	<textarea id="csv" class="form-control" [(ngModel)]="csv"></textarea>
@@ -9,6 +10,10 @@
 <div class="form-group text-left">
     <label for="shuffle">shuffle</label>
 	<input type="checkbox" id="shuffle" class="form-control" [(ngModel)]="shuffle" style="width: auto;" />
+</div>
+<div class="form-group text-left">
+    <label for="showanswers">show true answers</label>
+	<input type="checkbox" id="showanswers" class="form-control" [(ngModel)]="showanswers" style="width: auto;" />
 </div>
 <div class="form-group">
 	<button class="btn btn-success" (click)="processCSV()">START</button>

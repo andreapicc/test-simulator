@@ -16,7 +16,8 @@ export class SimulationComponent implements OnInit {
 	currentIndex = 0;
 	time: number;
     timeString: string;
-    timer: any;
+	timer: any;
+	showanswers: boolean;
 
 	constructor(
 			public global: Globals,
@@ -26,6 +27,8 @@ export class SimulationComponent implements OnInit {
 	}
 
 	ngOnInit() {
+		this.showanswers = this.global.showanswers;
+
 		if (typeof this.global.questions !== 'undefined' && this.global.questions !== null && this.global.questions.length > 0 ) {
 			this.questions = this.global.questions;
 			this.time = this.global.time * 60;

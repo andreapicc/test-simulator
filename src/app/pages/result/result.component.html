@@ -1,16 +1,19 @@
 <h1 class="display-4">SCORE: {{score}} %</h1>
-<div *ngFor="let question of result" class="card">
-	<div class="card-header" [innerHTML]="question.q"></div>
-	<div class="card-body">
-		<div class="row" *ngFor="let answer of question.a">
-			<div class="col-1">
-				<i *ngIf="answer.r && answer.rt"  class="fas fa-check-circle text-success"></i>
-				<i *ngIf="!answer.r && answer.rt"  class="fas fa-times-circle text-danger"></i>
-			</div>
-			<div class="col-11" [ngClass]="answer.r ? 'mark': ''">
-				<span [innerHTML]="answer.t"></span>
-			</div>
-		</div>
-	</div>
+<div *ngFor="let question of result; let i = index">
+    {{(i+1)}} of {{result.length}}
+    <div class="card">
+        <div class="card-header" [innerHTML]="question.q"></div>
+        <div class="card-body">
+            <div class="row" *ngFor="let answer of question.a">
+                <div class="col-1">
+                    <i *ngIf="answer.r && answer.rt"  class="fas fa-check-circle text-success"></i>
+                    <i *ngIf="!answer.r && answer.rt"  class="fas fa-times-circle text-danger"></i>
+                </div>
+                <div class="col-11" [ngClass]="answer.r ? 'mark': ''">
+                    <span [innerHTML]="answer.t"></span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 

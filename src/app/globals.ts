@@ -6,4 +6,5 @@ export class Globals {
 	public result: any;
 	public time: number;
     public shuffle: boolean;
+    public showanswers: boolean;
 }

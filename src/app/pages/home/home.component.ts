@@ -15,14 +15,16 @@ export class HomeComponent implements OnInit {
     rowSeparator = '\n';
     colSeparator = '	';
     shuffle: boolean;
+    showanswers: boolean;
 
 	constructor(
 		public global: Globals,
 		private router: Router) {}
 
 	ngOnInit() {
-        this.time = '120';
+        this.time = '110';
         this.shuffle = false;
+        this.showanswers = false;
 	}
 
 	processCSV() {
@@ -44,15 +46,16 @@ export class HomeComponent implements OnInit {
 		this.questions.forEach(qu => {
 			qu.type = (qu.a.filter(x => x.r).length > 1) ? 'multi' : 'single';
 		});
-        if (this.shuffle) {
-            this.questions.forEach(qu => {
-                qu.a = this.shuffleArray(qu.a);
-            });
-            this.global.questions = this.shuffleArray(this.questions);
-        } else {
-            this.global.questions = this.questions;
-        }
+		if (this.shuffle) {
+			this.questions.forEach(qu => {
+				qu.a = this.shuffleArray(qu.a);
+			});
+			this.global.questions = this.shuffleArray(this.questions);
+		} else {
+			this.global.questions = this.questions;
+		}
 		this.global.time = parseInt(this.time, 10);
+		this.global.showanswers = this.showanswers;
 		this.router.navigate(['/simulation']);
 	}
 

@@ -11,7 +11,7 @@
 				<div class="col-1">
 					<input type="checkbox" name="answer{{a.i}}" [(ngModel)]="answer[a.i]" (click)="setCheckbox(a)" />
 				</div>
-				<div class="col-11">
+				<div class="col-11" [ngClass]="{'mark': showanswers && a.r}">
 					<span [innerHTML]="a.t"></span>
 				</div>
 			</div>
@@ -21,7 +21,7 @@
 				<div class="col-1">
 					<input type="radio" name="answer" (click)="setRadio(a)" />
 				</div>
-				<div class="col-11">
+				<div class="col-11" [ngClass]="{'mark': showanswers && a.r}">
 					<span [innerHTML]="a.t"></span>
 				</div>
 			</div>
