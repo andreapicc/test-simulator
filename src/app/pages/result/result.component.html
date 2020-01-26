@@ -1,6 +1,8 @@
 <h1 class="display-4">SCORE: {{score}} %</h1>
 <div *ngFor="let question of result; let i = index">
-    {{(i+1)}} of {{result.length}}
+	<div [ngClass]="question.score === 0 ? 'p-1 bg-danger text-white': 'p-1 bg-success text-white'">
+		{{(i+1)}} of {{result.length}}
+	</div>
     <div class="card">
         <div class="card-header" [innerHTML]="question.q"></div>
         <div class="card-body">
